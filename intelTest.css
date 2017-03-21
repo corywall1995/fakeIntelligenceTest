@@ -1,0 +1,61 @@
+/* Author: Cory Wall */
+body {
+  background-image: url(background_blue_gradient.jpg);
+}
+
+div {
+  font-size: 1.25em;
+}
+
+h1 {
+  text-align: center;
+  text-shadow: -2px 2px #999966;
+  color: white;
+  font-size: 4em;
+}
+
+.center {
+  text-align: center;
+}
+
+.footer {
+  position: fixed;
+  text-align: center;
+  bottom: 0em;
+  width: 100%;
+}
+
+p {
+  font-size: 1.25em;
+}
+
+div.footer > p {
+  font-size: 1em;
+}
+
+p::first-letter {
+  font-size: 3.25em;
+  font-weight: lighter;
+  font-family: serif;
+}
+.half_page {
+  float: left;
+  width: 50%;
+}
+
+#beginTest {
+  margin-left: 25px;
+  font-size: 3.5em;
+}
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
+
+.div_center {
+  text-align: center;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- Author: Cory Wall -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="intelTest.css" />
+    <title>Test Page 1</title>
+    <script type="text/javascript" src="test.js"></script>
+  </head>
+  <body>
+    <h1>Question 1</h1>
+    <div class="center">
+      A, B -> 2<br>
+      A, C -> 3<br>
+      B, D -> 8<br>
+      B, Z -> 52<br>
+      D, H -> 32<br>
+      B, J -> ?<br>
+      <input type="text" id="test_1_input" placeholder="answer" oninput="checkQ1();"/>
+    </div>
+    <div id="question_1_feedback" class="center">
+    </div>
+    <div id="Q1Skip" class="div_center">
+      <br>
+      <button id="skipButton1" onclick="Q1Skip();">Skip</button>
+      <button id="continueButton1" onclick="window.location.href='test_page_2.html'" disabled>Continue</button>
+    </div>
+
+    <div class="footer">
+      <p>
+        Created by: Cory Wall
+      </p>
+    </div>
+  </body>
+</html>
