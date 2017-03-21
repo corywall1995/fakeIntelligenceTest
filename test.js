@@ -7,7 +7,7 @@ function main()
   console.log("Hello World!");
 }
 
-
+// Check user input for Q1
 function checkQ1() {
   console.log("in checkQ1")
   var correct = false;
@@ -31,16 +31,18 @@ function checkQ1() {
   }
 }
 
+// Skip to next question for Q1
 function Q1Skip() {
   window.name = "1";
   window.location.href='test_page_2.html';
 }
 
+// Check user input for Q2
 function checkQ2() {
   console.log("in checkQ2")
   var correct = false;
   var user_input = document.getElementById('test_2_input');
-  if (user_input.value == 20) {
+  if (user_input.value == 5181245315) {
     document.getElementById("question_2_feedback").classList.add("correct");
     document.getElementById("question_2_feedback").classList.remove("incorrect");
     document.getElementById("question_2_feedback").innerHTML="Correct!!!";
@@ -59,7 +61,8 @@ function checkQ2() {
   }
 }
 
+// Skip to next question for Q2
 function Q2Skip() {
   window.name += "1";
-  window.location.href='test_page_2.html';
+  window.location.href='test_page_3.html';
 }
