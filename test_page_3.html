@@ -4,10 +4,35 @@
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="intelTest.css" />
-    <title>Test Page 2</title>
+    <title>Test Page 3</title>
     <script type="text/javascript" src="test.js"></script>
   </head>
   <body>
-    <h1>Question 2</h1>
+    <h1>Question 3</h1>
+    <div class="center">
+      <!--all individual numbers added -->
+      15, 26, 8 -> 22<br>
+      110, 44, 18 -> 19<br>
+      62, 27, 2 -> 19<br>
+      96, 21, 74 -> 29<br>
+      3, 59, 37 -> 27<br>
+      86, 64, 106 -> ?<br>
+
+
+      <input type="text" id="test_3_input" placeholder="answer" oninput="checkQ3();"/>
+    </div>
+    <div id="question_3_feedback" class="center">
+    </div>
+    <div id="Q3Skip" class="div_center">
+      <br>
+      <button id="skipButton3" onclick="Q3Skip();">Skip</button>
+      <button id="continueButton3" onclick="window.location.href='summary.html'" disabled>Continue</button>
+    </div>
+
+    <div class="footer">
+      <p>
+        Created by: Cory Wall
+      </p>
+    </div>
   </body>
 </html
