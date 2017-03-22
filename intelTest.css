@@ -17,7 +17,7 @@ h1 {
 .center {
   text-align: center;
   font-size: 1.75em;
-  color:  #593E1A;
+  color:  purple;
 }
 
 .footer {
@@ -66,4 +66,8 @@ p::first-letter {
 .results {
   text-align: center;
   font-size: 2.25em;
+}
+
+.didOkay {
+  color: yellow;
 }

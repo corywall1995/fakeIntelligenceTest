@@ -108,6 +108,7 @@ function Q2Hint() {
     sessionStorage.hintCount = 1;
   }
   document.getElementById('hintButton2').disabled = true;
+  document.getElementById('Q2Hint').innerHTML="Take a look at the examples again, your hint is the altered example";
   document.getElementById('examplesQ2').innerHTML="2, 1 -> 231212<br>8, 4  -> 2_12_4_32_4_8<br>9, 3 -> 31262739<br>14, 2 -> 7161228214<br>20, 5 -> 42515100520<br>15, 3 -> ?<br>";
 }
 
@@ -177,20 +178,24 @@ function summary() {
   var hintsUsed = Number(sessionStorage.hintCount);
   var num_correct, total, unused_hints = 3 - hintsUsed;
   if (skipsUsed == 3) {
-    document.getElementById("results").classList.add("incorrect");
     num_correct = 0;
   } else if (skipsUsed == 2) {
     num_correct =1;
-    document.getElementById("results").classList.add("incorrect");
   } else if (skipsUsed == 1) {
     num_correct = 2;
-    document.getElementById("results").classList.add("correct");
   } else {
     num_correct = 3;
-    document.getElementById("results").classList.add("correct");
   }
 
   total = num_correct + unused_hints;
+
+  if (total > 4) {
+    document.getElementById("results").classList.add("correct");
+  } else if (total == 3 || total == 4) {
+    document.getElementById("results").classList.add("didOkay");
+  } else {
+    document.getElementById("results").classList.add("incorrect");
+  }
 
   document.getElementById('results').innerHTML="You got " + num_correct + " out of 3 correct and used " + hintsUsed + " hints<br>";
   document.getElementById('results').innerHTML+="<b>Overall your score is " + total + " out of 6.</b>"
