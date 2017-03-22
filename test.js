@@ -7,6 +7,17 @@ function main()
   console.log("Hello World!");
 }
 
+function setSessionStorage() {
+  console.log("in setSessionStorage()");
+  if (typeof(Storage) !== "undefined") {
+    sessionStorage.skipCount = 0;
+    sessionStorage.hintCount = 0;
+  } else {
+    console.log("Sorry, your browser does not support web storage...");
+  }
+}
+
+
 // Check user input for Q1
 function checkQ1() {
   console.log("in checkQ1")
@@ -28,14 +39,40 @@ function checkQ1() {
   if (correct) {
     document.getElementById("continueButton1").disabled = false;
     document.getElementById("skipButton1").disabled = true;
+    document.getElementById('hintButton1').disabled = true;
   }
 }
 
+// Show hint for Q1
+function Q1Hint() {
+  console.log('in Q1Hint();');
+  if (sessionStorage.hintCount) {
+    sessionStorage.hintCount = Number(sessionStorage.hintCount) + 1;
+  } else {
+    sessionStorage.hintCount = 1;
+  }
+
+  document.getElementById('hint1').innerHTML="A=1 Z=26";
+  document.getElementById('hintButton1').disabled = true;
+}
+
+
 // Skip to next question for Q1
 function Q1Skip() {
-  window.name = "1";
+  if (sessionStorage.skipCount) {
+    sessionStorage.skipCount = Number(sessionStorage.skipCount) + 1;
+  } else {
+    sessionStorage.skipCount = 1;
+  }
   window.location.href='test_page_2.html';
 }
+
+// Shows the examples for Q2
+function showQ2() {
+  console.log('in showQ2()');
+  document.getElementById('examplesQ2').innerHTML="2, 1 -> 231212<br>8, 4  -> 21243248<br>9, 3 -> 31262739<br>14, 2 -> 7161228214<br>20, 5 -> 42515100520<br>15, 3 -> ?<br>";
+}
+
 
 // Check user input for Q2
 function checkQ2() {
@@ -58,12 +95,29 @@ function checkQ2() {
   if (correct) {
     document.getElementById("continueButton2").disabled = false;
     document.getElementById("skipButton2").disabled = true;
+    document.getElementById('hintButton2').disabled = true;
   }
+}
+
+// Shows hint for Q2
+function Q2Hint() {
+  console.log('in Q2Hint()');
+  if (sessionStorage.hintCount) {
+    sessionStorage.hintCount = Number(sessionStorage.hintCount) + 1;
+  } else {
+    sessionStorage.hintCount = 1;
+  }
+  document.getElementById('hintButton2').disabled = true;
+  document.getElementById('examplesQ2').innerHTML="2, 1 -> 231212<br>8, 4  -> 2_12_4_32_4_8<br>9, 3 -> 31262739<br>14, 2 -> 7161228214<br>20, 5 -> 42515100520<br>15, 3 -> ?<br>";
 }
 
 // Skip to next question for Q2
 function Q2Skip() {
-  window.name += "2";
+  if (sessionStorage.skipCount) {
+    sessionStorage.skipCount = Number(sessionStorage.skipCount) + 1;
+  } else {
+    sessionStorage.skipCount = 1;
+  }
   window.location.href='test_page_3.html';
 }
 
@@ -89,32 +143,67 @@ function checkQ3() {
   if (correct) {
     document.getElementById("continueButton3").disabled = false;
     document.getElementById("skipButton3").disabled = true;
+    document.getElementById('hintButton3').disabled = true;
   }
+}
+
+// Hint for Q3
+function Q3Hint() {
+  if (sessionStorage.hintCount) {
+    sessionStorage.hintCount = Number(sessionStorage.hintCount) + 1;
+  } else {
+    sessionStorage.hintCount = 1;
+  }
+  document.getElementById('hintButton3').disabled = true;
+  document.getElementById('Q3Hint').innerHTML="15 = 6, 26 = 8"
 }
 
 // Skip to next question for Q3
 function Q3Skip() {
-  window.name += "3";
+  if (sessionStorage.skipCount) {
+    sessionStorage.skipCount = Number(sessionStorage.skipCount) + 1;
+  } else {
+    sessionStorage.skipCount = 1;
+  }
   window.location.href='summary.html';
 }
 
+function hideTryAgain() {
+  document.getElementById("tryAgain").style.visibility = "hidden";
+}
+
 function summary() {
-  var skipsUsed = window.name;
-  var num_correct;
-  if (skipsUsed == "123") {
+  var skipsUsed = Number(sessionStorage.skipCount);
+  var hintsUsed = Number(sessionStorage.hintCount);
+  var num_correct, total, unused_hints = 3 - hintsUsed;
+  if (skipsUsed == 3) {
     document.getElementById("results").classList.add("incorrect");
     num_correct = 0;
-  } else if (skipsUsed == "12" || skipsUsed == "13" || skipsUsed == "23") {
+  } else if (skipsUsed == 2) {
     num_correct =1;
     document.getElementById("results").classList.add("incorrect");
-  } else if (skipsUsed == "1" || skipsUsed == "2" || skipsUsed == "3") {
+  } else if (skipsUsed == 1) {
     num_correct = 2;
     document.getElementById("results").classList.add("correct");
   } else {
-    num_correct =3;
+    num_correct = 3;
     document.getElementById("results").classList.add("correct");
   }
 
-  document.getElementById('results').innerHTML="You got " + num_correct + " out of 3 correct";
+  total = num_correct + unused_hints;
 
+  document.getElementById('results').innerHTML="You got " + num_correct + " out of 3 correct and used " + hintsUsed + " hints<br>";
+  document.getElementById('results').innerHTML+="<b>Overall your score is " + total + " out of 6.</b>"
+
+  document.getElementById("tryAgain").style.visibility = "visible";
+}
+
+function tryAgain() {
+  if (typeof(Storage) !== "undefined") {
+    sessionStorage.skipCount = 0;
+    sessionStorage.hintCount = 0;
+  } else {
+    console.log("Sorry, your browser does not support web storage...");
+  }
+  window.location.href='test_page_1.html';
 }

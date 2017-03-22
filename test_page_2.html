@@ -8,16 +8,11 @@
     <title>Test Page 2</title>
     <script type="text/javascript" src="test.js"></script>
   </head>
-  <body>
+  <body onload="showQ2();">
     <h1>Question 2</h1>
-    <div class="center">
+    <div id="examplesQ2" class="center">
       <!--/, +, -, *, B, A-->
-      2, 1 -> 231212<br>
-      8, 4  -> 21243248<br>
-      9, 3 -> 31262739<br>
-      14, 2 -> 7161228214<br>
-      20, 5 -> 42515100520<br>
-      15, 3 -> ?<br>
+
 
       <input type="text" id="test_2_input" placeholder="answer" oninput="checkQ2();"/>
     </div>
@@ -26,6 +21,7 @@
     <div id="Q2Skip" class="div_center">
       <br>
       <button id="skipButton2" onclick="Q2Skip();">Skip</button>
+      <button id="hintButton2" onclick="Q2Hint();">Hint</button>
       <button id="continueButton2" onclick="window.location.href='test_page_3.html'" disabled>Continue</button>
     </div>
 

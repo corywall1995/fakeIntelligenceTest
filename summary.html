@@ -8,12 +8,15 @@
     <title>Summary</title>
     <script type="text/javascript" src="test.js"></script>
   </head>
-  <body>
+  <body onload="hideTryAgain();">
     <h1>Summary</h1>
     <div class="center">
       <button id="getRusults" onclick="summary();">Get Results</button><br>
     </div>
     <div id="results" class="results">
+    </div>
+    <div id="tryAgain" class="div_center">
+      <button id='tryAgain' onclick='tryAgain();'>Try Again?</button>
     </div>
     <div class="footer">
       <p>
