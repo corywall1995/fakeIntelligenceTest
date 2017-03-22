@@ -156,7 +156,7 @@ function Q3Hint() {
     sessionStorage.hintCount = 1;
   }
   document.getElementById('hintButton3').disabled = true;
-  document.getElementById('Q3Hint').innerHTML="15 = 6, 26 = 8"
+  document.getElementById('Q3Hint').innerHTML="26 = 8, 62 = 8";
 }
 
 // Skip to next question for Q3
