@@ -1,26 +1,28 @@
 //Author: Cory Wall
-window.onload = main;
+//window.onload = main;
 
-
+/*
 function main()
 {
   console.log("Hello World!");
 }
+*/
 
 function setSessionStorage() {
-  console.log("in setSessionStorage()");
+//  console.log("in setSessionStorage()");
+// courtesy of W3schools, from https://www.w3schools.com/html/html5_webstorage.asp
   if (typeof(Storage) !== "undefined") {
     sessionStorage.skipCount = 0;
     sessionStorage.hintCount = 0;
   } else {
-    console.log("Sorry, your browser does not support web storage...");
+    alert("Session Storage not supported, try updating your browser");
   }
 }
 
 
 // Check user input for Q1
 function checkQ1() {
-  console.log("in checkQ1")
+//  console.log("in checkQ1")
   var correct = false;
   var user_input = document.getElementById('test_1_input');
   if (user_input.value == 20) {
@@ -45,7 +47,7 @@ function checkQ1() {
 
 // Show hint for Q1
 function Q1Hint() {
-  console.log('in Q1Hint();');
+//  console.log('in Q1Hint();');
   if (sessionStorage.hintCount) {
     sessionStorage.hintCount = Number(sessionStorage.hintCount) + 1;
   } else {
@@ -69,14 +71,14 @@ function Q1Skip() {
 
 // Shows the examples for Q2
 function showQ2() {
-  console.log('in showQ2()');
+//  console.log('in showQ2()');
   document.getElementById('examplesQ2').innerHTML="2, 1 -> 231212<br>8, 4  -> 21243248<br>9, 3 -> 31262739<br>14, 2 -> 7161228214<br>20, 5 -> 42515100520<br>15, 3 -> ?<br>";
 }
 
 
 // Check user input for Q2
 function checkQ2() {
-  console.log("in checkQ2")
+//  console.log("in checkQ2")
   var correct = false;
   var user_input = document.getElementById('test_2_input');
   if (user_input.value == 5181245315) {
@@ -101,7 +103,7 @@ function checkQ2() {
 
 // Shows hint for Q2
 function Q2Hint() {
-  console.log('in Q2Hint()');
+//  console.log('in Q2Hint()');
   if (sessionStorage.hintCount) {
     sessionStorage.hintCount = Number(sessionStorage.hintCount) + 1;
   } else {
@@ -125,7 +127,7 @@ function Q2Skip() {
 
 // Check user input for Q3
 function checkQ3() {
-  console.log("in checkQ3")
+//  console.log("in checkQ3")
   var correct = false;
   var user_input = document.getElementById('test_3_input');
   if (user_input.value == 31) {
@@ -204,11 +206,6 @@ function summary() {
 }
 
 function tryAgain() {
-  if (typeof(Storage) !== "undefined") {
-    sessionStorage.skipCount = 0;
-    sessionStorage.hintCount = 0;
-  } else {
-    console.log("Sorry, your browser does not support web storage...");
-  }
+  setSessionStorage();
   window.location.href='test_page_1.html';
 }
