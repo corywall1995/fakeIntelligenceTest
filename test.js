@@ -206,6 +206,7 @@ function summary() {
   document.getElementById('results').innerHTML+="<b>Overall your score is " + total + " out of 6.</b>"
 
   document.getElementById("tryAgain").style.visibility = "visible";
+  document.getElementById("showResultsBTN").style.visibility = "hidden";
 }
 
 function tryAgain() {
