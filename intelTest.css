@@ -36,11 +36,7 @@ div.footer > p {
   font-size: 1em;
 }
 
-p::first-letter {
-  font-size: 3.25em;
-  font-weight: lighter;
-  font-family: serif;
-}
+
 .half_page {
   float: left;
   width: 50%;

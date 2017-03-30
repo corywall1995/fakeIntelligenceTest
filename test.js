@@ -56,6 +56,7 @@ function Q1Hint() {
 
   document.getElementById('hint1').innerHTML="A=1 Z=26";
   document.getElementById('hintButton1').disabled = true;
+  document.getElementById('skipButton1').disabled = false;
 }
 
 
@@ -112,6 +113,7 @@ function Q2Hint() {
   document.getElementById('hintButton2').disabled = true;
   document.getElementById('Q2Hint').innerHTML="Take a look at the examples again, your hint is the altered example";
   document.getElementById('examplesQ2').innerHTML="2, 1 -> 231212<br>8, 4  -> 2_12_4_32_4_8<br>9, 3 -> 31262739<br>14, 2 -> 7161228214<br>20, 5 -> 42515100520<br>15, 3 -> ?<br>";
+  document.getElementById('skipButton2').disabled = false;
 }
 
 // Skip to next question for Q2
@@ -159,6 +161,7 @@ function Q3Hint() {
   }
   document.getElementById('hintButton3').disabled = true;
   document.getElementById('Q3Hint').innerHTML="26 = 8, 62 = 8";
+  document.getElementById('skipButton3').disabled = false;
 }
 
 // Skip to next question for Q3
